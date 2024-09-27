@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css'; // Ensure this file exists
+import { useNavigate } from 'react-router-dom';
 
-function Login({ toggleForm }) {
+function Login() {
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
   });
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,13 +15,17 @@ function Login({ toggleForm }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
     console.log('Logged in with data:', formData);
+    // You can add your login logic here
+  };
+
+  const handleRegisterClick = () => {
+    navigate('/register'); // Navigate to the register page
   };
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center font-weight-bold mb-4">Login</h2>
+      <h2 className="text-center font-weight-bold">Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
@@ -48,19 +53,15 @@ function Login({ toggleForm }) {
           />
         </div>
 
-        <div className="button-container mt-4">
+        <div className="button-container mt-3">
           <button type="submit" className="btn btn-primary">Login</button>
         </div>
-
-        <p className="text-center mt-3">
-          Don't have an account?
-          <button
-            type="button"
-            onClick={toggleForm}
-            style={{ color: 'blue', textDecoration: 'underline', border: 'none', background: 'none' }}>
+        <div className="text-center mt-3">
+          <span>Don't have an account? </span>
+          <button onClick={handleRegisterClick} style={{ color: 'blue', background: 'none', border: 'none', cursor: 'pointer' }}>
             Register
           </button>
-        </p>
+        </div>
       </form>
     </div>
   );

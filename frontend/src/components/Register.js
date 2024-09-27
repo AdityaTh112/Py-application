@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css'; // Ensure this file exists
+import { useNavigate } from 'react-router-dom';
 
-function Register({ toggleForm }) {
+function Register() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
   });
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,17 +16,17 @@ function Register({ toggleForm }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords don't match!");
-    } else {
-      // Handle registration logic here
-      console.log('Registered with data:', formData);
-    }
+    console.log('Registered with data:', formData);
+    // You can add your registration logic here
+  };
+
+  const handleLoginClick = () => {
+    navigate('/login'); // Navigate to the login page
   };
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center font-weight-bold mb-4">Register</h2>
+      <h2 className="text-center font-weight-bold">Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -67,32 +67,15 @@ function Register({ toggleForm }) {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="button-container mt-4">
+        <div className="button-container mt-3">
           <button type="submit" className="btn btn-primary">Register</button>
         </div>
-
-        <p className="text-center mt-3">
-          Already have an account?
-          <button
-            type="button"
-            onClick={toggleForm}
-            style={{ color: 'blue', textDecoration: 'underline', border: 'none', background: 'none' }}>
+        <div className="text-center mt-3">
+          <span>Already have an account? </span>
+          <button onClick={handleLoginClick} style={{ color: 'blue', background: 'none', border: 'none', cursor: 'pointer' }}>
             Login
           </button>
-        </p>
+        </div>
       </form>
     </div>
   );

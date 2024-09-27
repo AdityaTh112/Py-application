@@ -1,0 +1,32 @@
+.navbar {
+  background-color: #3f51b5; /* A nice blue color */
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Spacing between menu items */
+  margin: 0;
+}
+
+.navbar li {
+  cursor: pointer;
+}
+
+.navbar {
+    z-index: 1030; /* Ensure it stays above other content */
+}
+
+body {
+    padding-top: 56px; /* Adjust this to the height of your navbar */
+}
+
