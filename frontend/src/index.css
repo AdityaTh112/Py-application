@@ -1,0 +1,55 @@
+body {
+    background-color: #f5f5dc !important; /* Light beige background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+}
+
+.container {
+    max-width: 400px; /* Limit the width of the form */
+    padding: 15px;
+    background-color: white; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.form-heading {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space between heading and form */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Space between form fields */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    margin-top: 20px; /* Space between the buttons and the fields */
+}
+
+.button-container button {
+    margin: 0 10px; /* Space between login and register buttons */
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2px; /* Space between the buttons and the toggle text */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
